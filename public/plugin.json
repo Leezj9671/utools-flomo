@@ -1,0 +1,38 @@
+{
+  "main": "index.html",
+  "logo": "logo.png",
+  "preload": "preload.js",
+  "development": {
+    "main": "http://127.0.0.1:5173"
+  },
+  "features": [
+    {
+      "code": "write",
+      "description": "写一条 flomo 笔记：选标签、⌘/Ctrl+Enter 发送；选中的文字可一键转为摘录",
+      "cmds": [
+        "flomo",
+        "记到 flomo",
+        "浮墨",
+        {
+          "type": "over",
+          "label": "记到 flomo",
+          "minLength": 1,
+          "maxLength": 10000
+        }
+      ]
+    },
+    {
+      "code": "setup",
+      "description": "把复制的 flomo API 地址设为插件的记录地址",
+      "cmds": [
+        {
+          "type": "regex",
+          "label": "设为 flomo API",
+          "match": "/flomoapp\\.com\\/iwh\\/[A-Za-z0-9]+\\/[A-Za-z0-9]{16,}/i",
+          "minLength": 30,
+          "maxLength": 300
+        }
+      ]
+    }
+  ]
+}
