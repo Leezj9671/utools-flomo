@@ -78,10 +78,15 @@ function installMock(): { utools: UTools; services: Services; isMock: true } {
   return { utools, services, isMock: true }
 }
 
-const runtime =
-  window.utools && window.services
-    ? { utools: window.utools, services: window.services, isMock: false as const }
-    : installMock()
+function realRuntime() {
+  if (!window.utools || !window.services) {
+    throw new Error((window as { __preloadError?: string }).__preloadError ?? 'uTools runtime or preload bridge not available')
+  }
+  return { utools: window.utools, services: window.services, isMock: false as const }
+}
+
+// The mock only exists in dev builds; production bundles drop it entirely.
+const runtime = import.meta.env.DEV && !window.utools ? installMock() : realRuntime()
 
 export const utools = runtime.utools
 export const services = runtime.services

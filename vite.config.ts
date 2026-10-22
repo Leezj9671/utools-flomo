@@ -1,4 +1,4 @@
-import { appendFileSync } from 'node:fs'
+import { appendFileSync, readFileSync, writeFileSync } from 'node:fs'
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -24,10 +24,24 @@ function devLog(): Plugin {
   }
 }
 
+// Build only: the release package must not point at the dev server.
+function releasePluginJson(): Plugin {
+  return {
+    name: 'utools-release-plugin-json',
+    apply: 'build',
+    closeBundle() {
+      const file = 'dist/plugin.json'
+      const json = JSON.parse(readFileSync(file, 'utf8'))
+      delete json.development
+      writeFileSync(file, JSON.stringify(json, null, 2) + '\n')
+    },
+  }
+}
+
 // uTools loads the built index.html via file://, so assets must be relative.
 export default defineConfig({
   base: './',
-  plugins: [react(), devLog()],
+  plugins: [react(), devLog(), releasePluginJson()],
   build: {
     outDir: 'dist',
     // uTools 7.x runs Chrome 108; 8.x runs Chrome 132.
