@@ -10,7 +10,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1 --port 5173",
     "test": "node --test scripts/*.test.cjs",
-    "logo": "python3 -I scripts/make-logo.py"
+    "logo": "python3 -I scripts/make-logo.py",
+    "shots": "node scripts/store-shots.mjs"
   },
   "dependencies": {
     "react": "18.3.1",
@@ -20,6 +21,7 @@
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@vitejs/plugin-react": "4.4.1",
+    "playwright-core": "^1.49.1",
     "typescript": "5.8.3",
     "vite": "6.3.5"
   }

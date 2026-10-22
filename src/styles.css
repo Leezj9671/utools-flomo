@@ -812,43 +812,6 @@ kbd.on-accent {
   margin: 10px 0 0;
 }
 
-/* ---------- browser mock frame (dev only) ---------- */
-html.mock {
-  background: #8a8f98;
-  min-height: 100vh;
-}
-
-html.mock body {
-  padding: 48px 0;
-  background: transparent;
-}
-
-html.mock #root {
-  width: 800px;
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--bg);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.12);
-}
-
-html.mock #root::before {
-  content: 'flomo 速记';
-  display: flex;
-  align-items: center;
-  height: 58px;
-  padding: 0 22px;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 20px;
-}
-
-/* Mirror setExpandHeight: the outer frame gets the requested height, .app keeps its natural height. */
-html.mock #root {
-  height: calc(var(--mock-height, 544px) + 58px);
-  overflow-y: auto;
-}
-
 /* ---------- crash screen ---------- */
 .crash {
   display: flex;

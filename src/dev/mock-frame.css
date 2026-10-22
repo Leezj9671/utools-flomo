@@ -1,0 +1,104 @@
+/* Dev-only browser frame. Mirrors setExpandHeight through --mock-height (set by the mock). */
+html.mock,
+html.mock body {
+  min-height: 100vh;
+  background: #8a8f98;
+}
+
+.mf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 16px;
+}
+
+.mf-window {
+  width: 800px;
+  max-width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg);
+  box-shadow: 0 30px 80px rgba(15, 30, 22, 0.22), 0 2px 6px rgba(15, 30, 22, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.mf-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+  padding: 0 12px 0 10px;
+  background: var(--sunken);
+  border-bottom: 1px solid var(--line);
+}
+
+.mf-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 16px 0 9px;
+  border-radius: 999px;
+  background: var(--kbd);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mf-body {
+  height: var(--mock-height, auto);
+  overflow-y: auto;
+}
+
+/* ---------- market screenshot stage (1280 × 800) ---------- */
+html.mock:has(.mf-stage),
+html.mock:has(.mf-stage) body {
+  background: #f2f5f1;
+}
+
+html.mock[data-theme='dark']:has(.mf-stage),
+html.mock[data-theme='dark']:has(.mf-stage) body {
+  background: #111214;
+}
+
+.mf-stage {
+  min-height: 100vh;
+  justify-content: center;
+  padding: 0 0 12px;
+  background:
+    radial-gradient(900px 520px at 12% -12%, rgba(47, 154, 106, 0.2), transparent 62%),
+    radial-gradient(760px 480px at 105% 108%, rgba(47, 154, 106, 0.14), transparent 60%);
+}
+
+html[data-theme='dark'] .mf-stage {
+  background:
+    radial-gradient(900px 520px at 12% -12%, rgba(68, 192, 138, 0.16), transparent 62%),
+    radial-gradient(760px 480px at 105% 108%, rgba(68, 192, 138, 0.1), transparent 60%);
+}
+
+.mf-caption {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.mf-caption h1 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.mf-caption p {
+  margin: 12px 0 0;
+  font-size: 18px;
+  color: var(--text-2);
+}
+
+.mf-stage .mf-window {
+  zoom: 1.2;
+}
+
+.mf-stage .mf-body {
+  max-height: 460px;
+  overflow: hidden;
+}
