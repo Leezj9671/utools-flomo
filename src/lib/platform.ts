@@ -79,10 +79,19 @@ function installMock(): { utools: UTools; services: Services; isMock: true } {
 }
 
 function realRuntime() {
-  if (!window.utools || !window.services) {
-    throw new Error((window as { __preloadError?: string }).__preloadError ?? 'uTools runtime or preload bridge not available')
-  }
-  return { utools: window.utools, services: window.services, isMock: false as const }
+  if (!window.utools) throw new Error('uTools runtime not available')
+  // If preload failed, every bridge call throws the preload error, which the
+  // ErrorBoundary then shows instead of a blank panel.
+  const services =
+    window.services ??
+    (new Proxy({} as Services, {
+      get() {
+        return () => {
+          throw new Error((window as { __preloadError?: string }).__preloadError ?? 'preload.js 未能加载')
+        }
+      },
+    }) as Services)
+  return { utools: window.utools, services, isMock: false as const }
 }
 
 // The mock only exists in dev builds; production bundles drop it entirely.
