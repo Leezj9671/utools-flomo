@@ -2,6 +2,8 @@
   "name": "utools-flomo",
   "private": true,
   "version": "0.1.0",
+  "license": "MIT",
+  "repository": "github:Leezj9671/utools-flomo",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",

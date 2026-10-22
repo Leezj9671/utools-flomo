@@ -98,7 +98,7 @@ npm run logo     # regenerate public/logo.png
 npm run build
 ```
 
-`dist/` is the plugin root: `plugin.json` without the `development` entry, no source maps, no dev mock. In the uTools developer tool, point the project at `dist/plugin.json`, test it without the dev server running, then publish from the developer tool.
+`dist/` is the plugin root: `plugin.json` without the `development` entry, no source maps, no dev mock. In the uTools developer tool, point the project at `dist/plugin.json`, test it without the dev server running, then publish from the developer tool. Store copy, release notes and the full checklist live in [docs/store-listing.md](docs/store-listing.md).
 
 ## Project layout
 
@@ -130,6 +130,10 @@ scripts/             tests and logo generator
 - Requests go only to the flomo webhook URL you configure.
 - The URL is written to a local file with `0600` permissions. Turning on 「在多台设备间同步 API 地址」 additionally stores it in uTools' synced database.
 - Settings, default tags and tag history live in uTools' synced database; drafts stay in local storage.
+
+## License
+
+[MIT](LICENSE)
 
 ## Credits
 
