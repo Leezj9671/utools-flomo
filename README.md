@@ -29,7 +29,7 @@ This plugin started from the comment section of an older flomo plugin. The same 
 
 | Do this in uTools | Result |
 | --- | --- |
-| Type `flomo` (or `记到 flomo` / `浮墨`) | Open the composer; an unsent draft is restored |
+| Type `flomo` (or `flomo 速记` / `记到 flomo` / `浮墨`) | Open the composer; an unsent draft is restored |
 | Type or select any text → **记到 flomo** | Open the composer with that text |
 | Paste your flomo API URL into the search box → **设为 flomo API** | Jump straight to verify-and-save |
 
@@ -91,6 +91,14 @@ npm run logo     # regenerate public/logo.png
 
 - **Browser preview**: opening `http://127.0.0.1:5173` outside uTools installs a mock runtime (`src/lib/platform.ts`) so the UI can be developed and screenshotted. Query params drive it: `?payload=…`, `?code=setup`, `?noapi=1`, `?fail=invalid_api`, `?dark=1`, `?reset=1`. The mock is for visuals only; it does not prove uTools runtime behaviour.
 - **Runtime errors in uTools**: in dev mode, errors and an environment report (uTools/Chrome version, missing APIs, preload failures) are POSTed to the dev server and appended to `.devlog`, so you can debug without opening DevTools. The UI also shows an error panel instead of a blank window.
+
+## Release
+
+```bash
+npm run build
+```
+
+`dist/` is the plugin root: `plugin.json` without the `development` entry, no source maps, no dev mock. In the uTools developer tool, point the project at `dist/plugin.json`, test it without the dev server running, then publish from the developer tool.
 
 ## Project layout
 

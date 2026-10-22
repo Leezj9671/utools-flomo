@@ -29,6 +29,16 @@ A uTools plugin (Vite + React 18 + TypeScript, no UI library) that posts notes t
 - Markdown: bold and links render; `>` blockquotes are dropped. Excerpts use 「」.
 - Tags are inline `#tag` text (nested with `/`); there is no separate tags field.
 
+## uTools behaviour (verified on uTools 8.0.0)
+
+- uTools adds its own search entry named after the plugin name set in the developer tool. The `write` feature's first command is `flomo 速记`, identical to that name, so search shows a single entry instead of two. Keep them in sync if the plugin is renamed.
+- Every `over` match command shows up for *any* typed or selected text, so the plugin deliberately has only one (`记到 flomo`); excerpt is a toggle inside the composer, not a separate command.
+
+## Release
+
+- `npm run build` writes `dist/`; `vite.config.ts` strips `development` from `dist/plugin.json`, and the browser mock and devlog are dev-only and absent from the bundle.
+- Before packaging, check `dist/` has no `.git*`, `*.map`, or remote resources (uTools FAQ), then install `dist/plugin.json` in the developer tool and test without the dev server.
+
 ## Workflow
 
 ```bash
