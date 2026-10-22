@@ -10,7 +10,7 @@
       "code": "write",
       "description": "写一条 flomo 笔记：选标签、⌘/Ctrl+Enter 发送；选中的文字可一键转为摘录",
       "cmds": [
-        "flomo",
+        "flomo 速记",
         "记到 flomo",
         "浮墨",
         {
