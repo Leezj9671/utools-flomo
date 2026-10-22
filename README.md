@@ -1,6 +1,8 @@
 # flomo 速记 · uTools plugin
 
-> 在 uTools 里随手记到 flomo：选标签、⌘/Ctrl + Enter 发送、选中文字一键转为带出处的摘录。
+**English** · [简体中文](README.zh-CN.md)
+
+> Jot notes into flomo from uTools: pick tags, send with ⌘/Ctrl + Enter, and turn selected text into a sourced excerpt in one keystroke.
 
 A small, keyboard-first [uTools](https://www.u-tools.cn) plugin that sends notes to [flomo](https://flomoapp.com) through flomo's official **PRO webhook API**. No cookies, no relay server — your note goes straight from your machine to `flomoapp.com`.
 
@@ -114,7 +116,8 @@ src/
   lib/compose.ts     editor state → memo text
   lib/store.ts       settings (synced), API URL (local), drafts
   lib/platform.ts    uTools runtime or browser mock
-scripts/             tests and logo generator
+  dev/               dev-only preview frame and screenshot stage
+scripts/             tests, logo and market-screenshot generators
 ```
 
 ## Compatibility
