@@ -17,6 +17,7 @@ A uTools plugin (Vite + React 18 + TypeScript, no UI library) that posts notes t
 - `public/` is copied verbatim into `dist/`: `plugin.json`, `preload.js`, `lib/flomo.js`, `logo.png`, and `package.json` (`"type": "commonjs"`, required because the root package is ESM).
 - `public/preload.js` is CommonJS and the only place with Node/Electron access. It exposes a minimal `window.services`; never expose `fs`, `child_process` or raw Node objects to the page.
 - `public/lib/flomo.js` is pure Node (no uTools/Electron) so `scripts/flomo.test.cjs` can test it. Keep networking on Node `https` — uTools 7.x (Electron 22 / Node 16) has no global `fetch` in preload.
+- `src/dev/` (MockFrame + CSS) is the browser preview frame and the market-screenshot stage; it is loaded via a DEV-guarded dynamic import and must never be imported statically. `scripts/store-shots.mjs` drives it (`npm run shots`, dev server required) — rerun it after visible UI changes.
 - `src/lib/platform.ts` returns the real runtime inside uTools and a mock in a plain browser. Keep the mock in sync when adding a `utools` or `services` call, and add the type to `src/types.d.ts`.
 - `src/lib/store.ts` decides where data lives: settings and tag history → `utools.dbStorage` (synced); the API URL → local file via preload (synced only if the user opts in); drafts → `localStorage`.
 

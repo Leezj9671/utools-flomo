@@ -42,12 +42,13 @@ flomo 速记
 本插件为第三方开发，与 flomo 官方无关。
 ```
 
-**截图**（`docs/`）
+**截图**（`docs/store/`，2560×1600，按顺序上传；`npm run shots` 可重新生成）
 
-1. `composer.png` — 编辑与标签
-2. `excerpt-dark.png` — 摘录模式（深色）
-3. `onboarding.png` — 首次连接
-4. `settings.png` — 设置
+1. `01-write.png` — 想到就记，⌘↵ 就发
+2. `02-tags.png` — 标签不再靠手打
+3. `03-excerpt.png` — 划词摘录，出处不丢（深色）
+4. `04-setup.png` — 粘贴即用，一次配置
+5. `05-privacy.png` — 你的笔记，只发往 flomo
 
 ## Release notes
 
@@ -55,11 +56,12 @@ flomo 速记
 
 ```
 首个版本
-· 快捷键发送、默认标签、历史标签补全
-· 摘录模式：原文 + 来源链接 + 想法
-· API 配置引导与无副作用的连接验证
-· 草稿自动保存、发送失败可重试
-· 兼容 uTools 7.x 与 8.x
+· ⌘/Ctrl + Enter 发送，发完自动收起
+· 默认标签 + 历史标签补全（Tab）
+· 摘录模式（⌘/Ctrl + E）：原文 + 来源链接 + 你的想法
+· 首次配置引导：粘贴 API 地址即可，验证连接不会产生笔记
+· 草稿自动保存，发送失败可直接重试
+· 支持 Markdown 与深色模式，兼容 uTools 7.x / 8.x
 ```
 
 ## Publishing a version

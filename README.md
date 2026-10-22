@@ -4,7 +4,7 @@
 
 A small, keyboard-first [uTools](https://www.u-tools.cn) plugin that sends notes to [flomo](https://flomoapp.com) through flomo's official **PRO webhook API**. No cookies, no relay server — your note goes straight from your machine to `flomoapp.com`.
 
-![Composer](docs/composer.png)
+![flomo 速记](docs/store/01-write.png)
 
 ## Why
 
@@ -21,9 +21,9 @@ This plugin started from the comment section of an older flomo plugin. The same 
 
 ## Screenshots
 
-| Excerpt (dark) | Setup | Settings |
-| --- | --- | --- |
-| ![Excerpt](docs/excerpt-dark.png) | ![Onboarding](docs/onboarding.png) | ![Settings](docs/settings.png) |
+| Tags | Excerpt | Setup | Privacy |
+| --- | --- | --- | --- |
+| ![Tags](docs/store/02-tags.png) | ![Excerpt](docs/store/03-excerpt.png) | ![Setup](docs/store/04-setup.png) | ![Privacy](docs/store/05-privacy.png) |
 
 ## Usage
 
@@ -87,9 +87,10 @@ npm test         # unit tests for the flomo client (offline)
 FLOMO_API=https://flomoapp.com/iwh/… npm test   # also runs a live check that creates no memo
 npm run build    # typecheck + production build into dist/
 npm run logo     # regenerate public/logo.png
+npm run shots    # regenerate market screenshots in docs/store/ (needs npm run dev)
 ```
 
-- **Browser preview**: opening `http://127.0.0.1:5173` outside uTools installs a mock runtime (`src/lib/platform.ts`) so the UI can be developed and screenshotted. Query params drive it: `?payload=…`, `?code=setup`, `?noapi=1`, `?fail=invalid_api`, `?dark=1`, `?reset=1`. The mock is for visuals only; it does not prove uTools runtime behaviour.
+- **Browser preview**: opening `http://127.0.0.1:5173` outside uTools installs a mock runtime (`src/lib/platform.ts`) so the UI can be developed and screenshotted. Query params drive it: `?payload=…`, `?code=setup`, `?noapi=1`, `?fail=invalid_api`, `?dark=1`, `?reset=1`. Add `?stage&title=…&sub=…` for the captioned 1280×800 layout used by the market screenshots. The mock and frame are dev-only and never ship; they are for visuals and do not prove uTools runtime behaviour.
 - **Runtime errors in uTools**: in dev mode, errors and an environment report (uTools/Chrome version, missing APIs, preload failures) are POSTed to the dev server and appended to `.devlog`, so you can debug without opening DevTools. The UI also shows an error panel instead of a blank window.
 
 ## Release
