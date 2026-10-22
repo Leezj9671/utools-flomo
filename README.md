@@ -29,7 +29,7 @@ This plugin started from the comment section of an older flomo plugin. The same 
 
 | Do this in uTools | Result |
 | --- | --- |
-| Type `flomo` (or `flomo 速记` / `记到 flomo` / `浮墨`) | Open the composer; an unsent draft is restored |
+| Search `flomo` → **flomo 速记** (aliases: `记到 flomo`, `浮墨`) | Open the composer; an unsent draft is restored |
 | Type or select any text → **记到 flomo** | Open the composer with that text |
 | Paste your flomo API URL into the search box → **设为 flomo API** | Jump straight to verify-and-save |
 
