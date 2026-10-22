@@ -52,7 +52,7 @@ flomo 速记
 
 ## Release notes
 
-### 0.1.0
+### 1.0.0
 
 ```
 首个版本
@@ -70,5 +70,5 @@ flomo 速记
 2. In the developer tool, set the project's 工程目录 to **`dist/plugin.json`** (not `public/plugin.json`: that one only works with the dev server running).
 3. Stop the dev server and test the installed plugin end to end: first-time setup, write, excerpt, default tags, settings, a real send.
 4. Check the project description and platforms in the developer tool settings, then 发布到 uTools 插件应用市场 with the version number and release notes above.
-5. Tag the commit: `git tag v0.1.0 && git push --tags`.
+5. Tag the commit: `git tag v1.0.0 && git push --tags`.
 6. Switch 工程目录 back to `public/plugin.json` and run `npm run dev` to continue developing.
